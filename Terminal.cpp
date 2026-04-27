@@ -7,9 +7,20 @@
 
 void Terminal::updateInfo() {
     // UPDATING INFO ABOUT THE TERMINAL SCREEN
+#ifdef _WIN32
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
     columns = csbi.dwSize.X;
     rows = (short)(csbi.srWindow.Bottom - csbi.srWindow.Top + 1);
+#else
+    struct winsize ws {};
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) == 0 && ws.ws_col > 0 && ws.ws_row > 0) {
+        columns = (short)ws.ws_col;
+        rows = (short)ws.ws_row;
+    } else {
+        columns = 80;
+        rows = 24;
+    }
+#endif
 }
 
 Terminal::Terminal() {

@@ -2,7 +2,12 @@
 // Created by Michał on 2023-04-19.
 //
 
+#ifdef _WIN32
 #include <windows.h>
+#else
+#include <sys/ioctl.h>
+#include <unistd.h>
+#endif
 
 #ifndef PO_WILDLIFESIMULATOR_TERMINAL_H
 #define PO_WILDLIFESIMULATOR_TERMINAL_H
@@ -26,7 +31,9 @@ class Terminal {
 private:
     short columns;
     short rows;
+#ifdef _WIN32
     CONSOLE_SCREEN_BUFFER_INFO csbi;
+#endif
     void updateInfo();
 public:
     Terminal();

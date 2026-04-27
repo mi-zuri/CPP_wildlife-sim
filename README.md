@@ -1,8 +1,14 @@
 # CPP_wildlife-sim
 
-Turn-based wildlife ecosystem simulator written in C++17 with a colored terminal UI. Object-Oriented Programming course project (PO — *Programowanie Obiektowe*).
+Turn-based wildlife ecosystem simulator written in C++17 with a colored terminal UI.
 
 C++ counterpart to the [Java version](https://github.com/mi-zuri/JAVA_wildlife-sim) — same simulation rules, different front-end.
+
+---
+
+![terminal screenshot on a mac](docs/images/preview.png)
+
+---
 
 ## What it simulates
 
@@ -20,6 +26,17 @@ Each species has distinct strength, speed, and collision behavior. The Human is 
 - `std::shared_ptr<Organism>` for lifetime management
 - Windows-console targeted (uses `windows.h` for cursor / color control) — no save/load
 
+## Run
+
+Build directly on macOS or Linux:
+
+```bash
+clang++ -std=c++17 *.cpp -o wildlife-sim
+./wildlife-sim
+```
+
+If you prefer CMake and have it installed:
+
 ## Build
 
 ```bash
@@ -27,3 +44,10 @@ cmake -S . -B build
 cmake --build build
 ./build/PO_WildlifeSimulator
 ```
+
+## Controls
+
+- Arrow keys: move the Human
+- Space: advance one turn
+- Tab: show info screen
+- q: quit
