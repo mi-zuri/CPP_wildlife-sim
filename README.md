@@ -2,7 +2,7 @@
 
 Turn-based wildlife ecosystem simulator written in C++17 with a colored terminal UI.
 
-C++ counterpart to the [Java version](https://github.com/mi-zuri/JAVA_wildlife-sim) — same simulation rules, different front-end.
+C++ counterpart to the [Java version](https://github.com/mi-zuri/JAVA_wildlife-sim) and [Python version](https://github.com/mi-zuri/PY_wildlife-sim) — same simulation rules, different front-end.
 
 ---
 
